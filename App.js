@@ -1,5 +1,11 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, ImageBackground } from "react-native";
+import {
+  StyleSheet,
+  View,
+  ImageBackground,
+  TouchableWithoutFeedback,
+  Keyboard,
+} from "react-native";
 import { useFonts } from "expo-font";
 import BGImage from "./assets/images/bg.png";
 import RegistrationScreen from "./src/Screens/RegistrationScreen";
@@ -17,13 +23,19 @@ export default function App() {
   }
 
   return (
-    <View style={styles.container}>
-      <ImageBackground source={BGImage} resizeMode="cover" style={styles.image}>
-        <RegistrationScreen />
-        {/* <LoginScreen /> */}
-        <StatusBar style="auto" />
-      </ImageBackground>
-    </View>
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <View style={styles.container}>
+        <ImageBackground
+          source={BGImage}
+          resizeMode="cover"
+          style={styles.image}
+        >
+          {/* <RegistrationScreen /> */}
+          <LoginScreen />
+          <StatusBar style="auto" />
+        </ImageBackground>
+      </View>
+    </TouchableWithoutFeedback>
   );
 }
 
@@ -35,6 +47,6 @@ const styles = StyleSheet.create({
   image: {
     flex: 1,
     justifyContent: "flex-end",
-    alignItems: "flex-end",
+    // alignItems: "flex-end",
   },
 });

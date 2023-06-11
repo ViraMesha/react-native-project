@@ -1,9 +1,15 @@
-import { StyleSheet, Text, View, TextInput } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  TouchableOpacity,
+} from "react-native";
 import { useState } from "react";
 
 const PasswordInput = ({ ...inputProps }) => {
   const [isFocused, setIsFocused] = useState(false);
-
+  const [isSecureEntry, setIsSecureEntry] = useState(true);
   const handleFocus = () => {
     setIsFocused(true);
   };
@@ -23,8 +29,17 @@ const PasswordInput = ({ ...inputProps }) => {
         {...inputProps}
         onFocus={handleFocus}
         onBlur={handleBlur}
+        secureTextEntry={isSecureEntry}
       />
-      <Text style={styles.span}>Показати</Text>
+      <TouchableOpacity
+        onPress={() => {
+          setIsSecureEntry((prevState) => !prevState);
+        }}
+      >
+        <Text style={styles.span}>
+          {isSecureEntry ? "Показати" : "Сховати"}
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 };

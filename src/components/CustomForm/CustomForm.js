@@ -1,11 +1,15 @@
-import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 
-const CustomForm = ({ children, title, buttonText, text, style }) => {
+const CustomForm = ({ children, title, buttonText, text, style, onPress }) => {
   return (
     <View style={[styles.form, style]}>
       <Text style={styles.title}>{title}</Text>
       {children}
-      <TouchableOpacity style={styles.button} activeOpacity={0.7}>
+      <TouchableOpacity
+        style={styles.button}
+        activeOpacity={0.7}
+        onPress={onPress}
+      >
         <Text style={styles.buttonText}>{buttonText}</Text>
       </TouchableOpacity>
       <Text style={styles.text}>{text}</Text>

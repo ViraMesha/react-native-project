@@ -1,10 +1,24 @@
 import { StyleSheet, View, Image } from "react-native";
+import { useState } from "react";
 import CustomInput from "../../components/CustomInput";
 import CustomForm from "../../components/CustomForm";
 import PasswordInput from "../../components/PasswordInput";
 import AddIcon from "../../../assets/images/add.png";
 
+const initialState = {
+  login: "",
+  email: "",
+  password: "",
+};
+
 const RegistrationScreen = () => {
+  const [state, setState] = useState(initialState);
+
+  onPress = () => {
+    console.log(state);
+    setState(initialState);
+  };
+
   return (
     <View style={styles.wrapper}>
       <View style={styles.avatarContainer}>
@@ -17,10 +31,29 @@ const RegistrationScreen = () => {
         buttonText="Зареєстуватися"
         text="Вже є акаунт? Увійти"
         style={{ paddingTop: 92, height: 549 }}
+        onPress={onPress}
       >
-        <CustomInput placeholder="Логін" />
-        <CustomInput placeholder="Адреса електронної пошти" />
-        <PasswordInput placeholder="Пароль" secureTextEntry={true} />
+        <CustomInput
+          placeholder="Логін"
+          value={state.login}
+          onChangeText={(value) =>
+            setState((prevState) => ({ ...prevState, login: value }))
+          }
+        />
+        <CustomInput
+          placeholder="Адреса електронної пошти"
+          value={state.email}
+          onChangeText={(value) =>
+            setState((prevState) => ({ ...prevState, email: value }))
+          }
+        />
+        <PasswordInput
+          placeholder="Пароль"
+          value={state.password}
+          onChangeText={(value) =>
+            setState((prevState) => ({ ...prevState, password: value }))
+          }
+        />
       </CustomForm>
     </View>
   );

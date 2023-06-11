@@ -1,9 +1,8 @@
 import { StyleSheet, TextInput, View } from "react-native";
 import { useState } from "react";
 
-const CustomInput = ({ placeholder, secureTextEntry }) => {
+const CustomInput = ({ placeholder, secureTextEntry, ...inputProps }) => {
   const [isFocused, setIsFocused] = useState(false);
-  const [text, setText] = useState("");
 
   const handleFocus = () => {
     setIsFocused(true);
@@ -17,14 +16,13 @@ const CustomInput = ({ placeholder, secureTextEntry }) => {
   return (
     <View>
       <TextInput
-        style={inputStyles}
+        style={[inputStyles]}
         placeholder={placeholder}
         secureTextEntry={secureTextEntry}
         placeholderTextColor="#BDBDBD"
         onFocus={handleFocus}
         onBlur={handleBlur}
-        value={text}
-        onChangeText={setText}
+        {...inputProps}
       />
     </View>
   );
