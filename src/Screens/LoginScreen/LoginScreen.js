@@ -21,7 +21,7 @@ const LoginScreen = () => {
       title="Увійти"
       buttonText="Увійти"
       text="Немає акаунту? Зареєструватися"
-      style={{ paddingTop: 32, height: 489 }}
+      style={{ paddingTop: 32 }}
       onPress={onPress}
     >
       <CustomInput

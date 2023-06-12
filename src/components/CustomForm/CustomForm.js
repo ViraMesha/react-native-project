@@ -22,6 +22,7 @@ export default CustomForm;
 const styles = StyleSheet.create({
   form: {
     width: "100%",
+    height: "70%",
     alignSelf: "flex-end",
     backgroundColor: "#FFFFFF",
     borderTopLeftRadius: 25,

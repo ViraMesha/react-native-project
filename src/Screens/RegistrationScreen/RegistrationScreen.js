@@ -30,7 +30,7 @@ const RegistrationScreen = () => {
         title="Реєстрація"
         buttonText="Зареєстуватися"
         text="Вже є акаунт? Увійти"
-        style={{ paddingTop: 92, height: 549 }}
+        style={{ paddingTop: 92, height: "100%" }}
         onPress={onPress}
       >
         <CustomInput
@@ -64,6 +64,7 @@ export default RegistrationScreen;
 const styles = StyleSheet.create({
   wrapper: {
     width: "100%",
+    height: "80%",
     position: "relative",
   },
   avatarContainer: {
