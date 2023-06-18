@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
 import CustomForm from "../components/CustomForm";
 import CustomInput from "../components/CustomInput";
 import PasswordInput from "../components/PasswordInput";
@@ -11,10 +12,15 @@ const initialState = {
 
 const LoginScreen = () => {
   const [state, setState] = useState(initialState);
+  const navigation = useNavigation();
 
   onPress = () => {
     console.log(state);
     setState(initialState);
+  };
+
+  onTextClick = () => {
+    navigation.navigate("Registration");
   };
 
   return (
@@ -22,9 +28,11 @@ const LoginScreen = () => {
       <CustomForm
         title="Увійти"
         buttonText="Увійти"
-        text="Немає акаунту? Зареєструватися"
+        text="Немає акаунту? "
         style={{ paddingTop: 32 }}
         onPress={onPress}
+        onTextClick={onTextClick}
+        linkText="Зареєструватися"
       >
         <CustomInput
           placeholder="Адреса електронної пошти"

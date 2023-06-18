@@ -1,6 +1,15 @@
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 
-const CustomForm = ({ children, title, buttonText, text, style, onPress }) => {
+const CustomForm = ({
+  children,
+  title,
+  buttonText,
+  text,
+  style,
+  onPress,
+  onTextClick,
+  linkText,
+}) => {
   return (
     <View style={[styles.form, style]}>
       <Text style={styles.title}>{title}</Text>
@@ -12,7 +21,12 @@ const CustomForm = ({ children, title, buttonText, text, style, onPress }) => {
       >
         <Text style={styles.buttonText}>{buttonText}</Text>
       </TouchableOpacity>
-      <Text style={styles.text}>{text}</Text>
+      <TouchableOpacity onPress={onTextClick} activeOpacity={0.7}>
+        <Text style={styles.text}>
+          {text}
+          <Text style={{ textDecorationLine: "underline" }}>{linkText}</Text>
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -58,6 +72,7 @@ const styles = StyleSheet.create({
     fontFamily: "Roboto-Regular",
     marginTop: 16,
     textAlign: "center",
+    fontWeight: "400",
     fontSize: 16,
     lineHeight: 19,
     color: "#1B4371",

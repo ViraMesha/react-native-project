@@ -1,4 +1,5 @@
 import { StyleSheet, View, Image } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
 import CustomInput from "../components/CustomInput";
 import CustomForm from "../components/CustomForm";
@@ -14,10 +15,15 @@ const initialState = {
 
 const RegistrationScreen = () => {
   const [state, setState] = useState(initialState);
+  const navigation = useNavigation();
 
   onPress = () => {
     console.log(state);
     setState(initialState);
+  };
+
+  onTextClick = () => {
+    navigation.navigate("Login");
   };
 
   return (
@@ -31,9 +37,11 @@ const RegistrationScreen = () => {
         <CustomForm
           title="Реєстрація"
           buttonText="Зареєстуватися"
-          text="Вже є акаунт? Увійти"
+          text="Вже є акаунт? "
           style={{ paddingTop: 92, height: "100%" }}
           onPress={onPress}
+          onTextClick={onTextClick}
+          linkText="Увійти"
         >
           <CustomInput
             placeholder="Логін"
@@ -68,7 +76,7 @@ export default RegistrationScreen;
 const styles = StyleSheet.create({
   wrapper: {
     width: "100%",
-    height: "80%",
+    height: "85%",
     position: "relative",
   },
   avatarContainer: {
