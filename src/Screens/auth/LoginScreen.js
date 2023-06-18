@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
-import CustomForm from "../components/CustomForm";
-import CustomInput from "../components/CustomInput";
-import PasswordInput from "../components/PasswordInput";
-import Wrapper from "../components/Wrapper/Wrapper";
+import CustomForm from "../../components/CustomForm";
+import CustomInput from "../../components/CustomInput";
+import PasswordInput from "../../components/PasswordInput";
+import Wrapper from "../../components/Wrapper/Wrapper";
 
 const initialState = {
   email: "",

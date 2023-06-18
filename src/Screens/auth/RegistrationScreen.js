@@ -1,11 +1,11 @@
 import { StyleSheet, View, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
-import CustomInput from "../components/CustomInput";
-import CustomForm from "../components/CustomForm";
-import PasswordInput from "../components/PasswordInput";
-import AddIcon from "../../assets/images/add.png";
-import Wrapper from "../components/Wrapper/Wrapper";
+import CustomInput from "../../components/CustomInput";
+import CustomForm from "../../components/CustomForm";
+import PasswordInput from "../../components/PasswordInput";
+import AddIcon from "../../../assets/images/add.png";
+import Wrapper from "../../components/Wrapper/Wrapper";
 
 const initialState = {
   login: "",

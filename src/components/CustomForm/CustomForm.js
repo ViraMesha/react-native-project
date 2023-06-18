@@ -21,12 +21,14 @@ const CustomForm = ({
       >
         <Text style={styles.buttonText}>{buttonText}</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={onTextClick} activeOpacity={0.7}>
-        <Text style={styles.text}>
-          {text}
-          <Text style={{ textDecorationLine: "underline" }}>{linkText}</Text>
-        </Text>
-      </TouchableOpacity>
+      <View style={styles.textWrapper}>
+        <Text style={styles.text}>{text}</Text>
+        <TouchableOpacity onPress={onTextClick} activeOpacity={0.7}>
+          <Text style={[styles.text, { textDecorationLine: "underline" }]}>
+            {linkText}
+          </Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -67,6 +69,11 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 19,
     color: "#FFFFFF",
+  },
+  textWrapper: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
   },
   text: {
     fontFamily: "Roboto-Regular",

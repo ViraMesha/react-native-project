@@ -2,9 +2,16 @@ import { useFonts } from "expo-font";
 import "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { Home, RegistrationScreen, LoginScreen } from "./src/Screens";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { LoginScreen, RegistrationScreen } from "./src/Screens/auth";
+import {
+  PostsScreen,
+  CreatPostsScreen,
+  ProfileScreen,
+} from "./src/Screens/main";
 
 const MainStack = createStackNavigator();
+const Tabs = createBottomTabNavigator();
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -16,27 +23,34 @@ export default function App() {
   if (!fontsLoaded) {
     return null;
   }
-  // return <LoginScreen />;
-  // return <RegistrationScreen />;
+
   return (
     <NavigationContainer>
-      <MainStack.Navigator initialRouteName="Registration">
-        <MainStack.Screen
+      <Tabs.Navigator initialRouteName="Registration">
+        <Tabs.Screen name="Публікації" component={PostsScreen} />
+        <Tabs.Screen name="Створити публікацію" component={CreatPostsScreen} />
+        <Tabs.Screen
           options={{ headerShown: false }}
-          name="Registration"
-          component={RegistrationScreen}
+          name="Профіль"
+          component={ProfileScreen}
         />
-        <MainStack.Screen
-          options={{ headerShown: false }}
-          name="Login"
-          component={LoginScreen}
-        />
-        <MainStack.Screen
-          options={{ headerShown: false }}
-          name="Home"
-          component={Home}
-        />
-      </MainStack.Navigator>
+      </Tabs.Navigator>
     </NavigationContainer>
   );
+}
+// auth
+{
+  /* <MainStack.Navigator initialRouteName="Registration">
+<MainStack.Screen
+  options={{ headerShown: false }}
+  name="Registration"
+  component={RegistrationScreen}
+/>
+<MainStack.Screen
+  options={{ headerShown: false }}
+  name="Login"
+  component={LoginScreen}
+/>
+<MainStack.Screen name="Home" options={{title: "Публікації"}}/>
+</MainStack.Navigator> */
 }
