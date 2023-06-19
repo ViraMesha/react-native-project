@@ -51,6 +51,10 @@ const useAuth = (isAuth) => {
             lineHeight: 22,
             letterSpacing: -0.408,
           },
+          headerStyle: {
+            backgroundColor: "#FFFFFF",
+            boxShadow: " 0px 0.5px 0px rgba(0, 0, 0, 0.3)",
+          },
           headerRight: () => <LogOut />,
           tabBarIcon: ({ focused, color, size }) => <Grid />,
         }}
@@ -66,6 +70,10 @@ const useAuth = (isAuth) => {
             fontSize: 17,
             lineHeight: 22,
             letterSpacing: -0.408,
+          },
+          headerStyle: {
+            backgroundColor: "#FFFFFF",
+            boxShadow: " 0px 0.5px 0px rgba(0, 0, 0, 0.3)",
           },
           tabBarIcon: ({ focused, color, size }) => <New />,
         }}
