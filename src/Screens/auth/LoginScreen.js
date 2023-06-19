@@ -17,6 +17,7 @@ const LoginScreen = () => {
   onPress = () => {
     console.log(state);
     setState(initialState);
+    navigation.navigate("Home");
   };
 
   onTextClick = () => {
