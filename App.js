@@ -2,6 +2,7 @@ import "react-native-gesture-handler";
 import { useFonts } from "expo-font";
 import { NavigationContainer } from "@react-navigation/native";
 import useAuth from "./src/helpers/router";
+import { CommentsScreen } from "./src/Screens/main";
 
 export default function App() {
   const routing = useAuth(true);
@@ -15,6 +16,6 @@ export default function App() {
   if (!fontsLoaded) {
     return null;
   }
-
-  return <NavigationContainer>{routing}</NavigationContainer>;
+  return <CommentsScreen />;
+  // return <NavigationContainer>{routing}</NavigationContainer>;
 }
