@@ -16,6 +16,5 @@ export default function App() {
   if (!fontsLoaded) {
     return null;
   }
-  return <CommentsScreen />;
-  // return <NavigationContainer>{routing}</NavigationContainer>;
+  return <NavigationContainer>{routing}</NavigationContainer>;
 }

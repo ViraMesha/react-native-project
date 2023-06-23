@@ -9,6 +9,7 @@ import {
   Home,
 } from "./../Screens/main";
 import { Grid, New, User, LogOut } from "../../assets/icons";
+import TabIcon from "../components/TabIcon/TabIcon";
 
 const MainStack = createStackNavigator();
 const Tabs = createBottomTabNavigator();
@@ -56,7 +57,9 @@ const useAuth = (isAuth) => {
             boxShadow: " 0px 0.5px 0px rgba(0, 0, 0, 0.3)",
           },
           headerRight: () => <LogOut />,
-          tabBarIcon: ({ focused, color, size }) => <Grid />,
+          tabBarIcon: ({ focused }) => (
+            <TabIcon icon={Grid} focused={focused} backgroundColor="#FF6C00" />
+          ),
         }}
       />
       <Tabs.Screen
@@ -75,13 +78,17 @@ const useAuth = (isAuth) => {
             backgroundColor: "#FFFFFF",
             boxShadow: " 0px 0.5px 0px rgba(0, 0, 0, 0.3)",
           },
-          tabBarIcon: ({ focused, color, size }) => <New />,
+          tabBarIcon: ({ focused }) => (
+            <TabIcon icon={New} focused={focused} backgroundColor="#FF6C00" />
+          ),
         }}
       />
       <Tabs.Screen
         options={{
           headerShown: false,
-          tabBarIcon: ({ focused, color, size }) => <User />,
+          tabBarIcon: ({ focused }) => (
+            <TabIcon icon={User} focused={focused} backgroundColor="#FF6C00" />
+          ),
         }}
         name="Профіль"
         component={ProfileScreen}

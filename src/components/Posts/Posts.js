@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import React from "react";
 
 import mountains from "../../../assets/images/mountains.jpg";
@@ -10,10 +10,12 @@ const Posts = ({ placeText }) => {
       <Image source={mountains} style={styles.image} />
       <Text style={styles.subscriptionText}>Ліс</Text>
       <View style={styles.detailsContainer}>
-        <View style={styles.commentsContainer}>
-          <Message />
-          <Text style={styles.commentsNumber}>0</Text>
-        </View>
+        <TouchableOpacity activeOpacity={0.7}>
+          <View style={styles.commentsContainer}>
+            <Message />
+            <Text style={styles.commentsNumber}>0</Text>
+          </View>
+        </TouchableOpacity>
         <View style={styles.mapContainer}>
           <Map />
           <Text style={styles.placeText}>{placeText}</Text>
